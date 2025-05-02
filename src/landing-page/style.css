@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fff0f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 0 1rem;
+  }
+  
+  header {
+    text-align: center;
+    background: #ffe0ec;
+    padding: 3rem 1rem;
+    border-bottom: 4px solid #ffb6c1;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #d63384;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #ff69b4;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #fffdfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  section {
+    margin-bottom: 3rem;
+  }
+  
+  .pricing-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .plan {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .plan.popular {
+    border: 2px solid #ff69b4;
+    background: #fff5fa;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
