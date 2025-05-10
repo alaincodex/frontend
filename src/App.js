@@ -25,20 +25,28 @@ function App() {
     <div className={`${isDark ? "dark" : ""} h-screen w-screen overflow-hidden`}>
       <Router>
         <div className="flex flex-col md:flex-row h-full w-full">
-          {/* Mobile Top Bar */}
-          {user && (
-            <div className="md:hidden flex justify-between items-center bg-gray-900 text-white p-4">
-              <span className="font-bold">📚 StudyApp</span>
-              <button
-                onClick={() => signOut(auth)}
-                className="text-sm text-red-300"
-              >
-                🚪 Logout
-              </button>
+          {/* ✅ Mobile Top Navigation */}
+          <div className="md:hidden bg-gray-900 text-white p-4 flex flex-wrap justify-between items-center gap-2">
+            <span className="font-bold text-lg">📚 StudyApp</span>
+            <div className="flex flex-wrap gap-2 text-sm">
+              <Link to="/" className="hover:text-yellow-300">🏠 Home</Link>
+              {user ? (
+                <>
+                  <Link to="/flashcards" className="hover:text-yellow-300">🃏 Flashcards</Link>
+                  <Link to="/folders" className="hover:text-yellow-300">📁 Folders</Link>
+                  <Link to="/upload" className="hover:text-yellow-300">📄 Upload</Link>
+                  <button onClick={() => signOut(auth)} className="text-red-300 hover:text-red-500">🚪 Logout</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="hover:text-yellow-300">🔐 Login</Link>
+                  <Link to="/signup" className="hover:text-yellow-300">✍️ Sign Up</Link>
+                </>
+              )}
             </div>
-          )}
+          </div>
 
-          {/* Sidebar - Hidden on Mobile */}
+          {/* ✅ Sidebar (Desktop only) */}
           <div className="w-full md:w-48 bg-gray-900 text-white p-4 space-y-4 overflow-y-auto hidden md:block">
             <h1 className="text-xl font-bold mb-6">📚 StudyApp</h1>
             <ThemeToggle />
@@ -65,7 +73,7 @@ function App() {
             )}
           </div>
 
-          {/* Main Content */}
+          {/* ✅ Main Content */}
           <div className="flex-1 h-full overflow-auto p-4 sm:p-6 bg-gray-100 dark:bg-gray-800">
             <Routes>
               <Route path="/" element={<Home />} />
