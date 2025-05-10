@@ -1,18 +1,20 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #fff0f5;
+    background: linear-gradient(to bottom right, #fce3ec, #f9f7ff); /* soft pastel gradient */
     color: #333;
     line-height: 1.6;
     padding: 0 1rem;
+    min-height: 100vh;
   }
   
   header {
     text-align: center;
-    background: #ffe0ec;
+    background: rgba(255, 224, 236, 0.8);
     padding: 3rem 1rem;
     border-bottom: 4px solid #ffb6c1;
     border-radius: 0 0 20px 20px;
+    backdrop-filter: blur(6px);
   }
   
   h1 {
@@ -36,9 +38,10 @@ body {
     max-width: 800px;
     margin: 2rem auto;
     padding: 1rem;
-    background: #fffdfd;
+    background: #ffffffcc; /* semi-transparent white */
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
   }
   
   section {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { jsPDF } from "jspdf";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import "./FlashcardList.css"; // 👈 NEW import for background and box
+import "./FlashcardList.css"; // NEW import for background and box
 
 export default function FlashcardList() {
   const [folders, setFolders] = useState({});
@@ -145,7 +145,7 @@ export default function FlashcardList() {
   return (
     <div className="flashcard-background">
       <div className="flashcard-box">
-        <h2 className="text-2xl font-bold mb-4">🃏 Flashcards by Folder</h2>
+        <h2 className="text-2xl font-bold mb-4"> Flashcards by Folder</h2>
 
         <select
           value={selectedFolder}

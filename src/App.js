@@ -9,7 +9,7 @@ import Signup from "./components/Signup";
 import ThemeToggle from "./components/ThemeToggle";
 import { auth } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { signOut } from "firebase/auth"; // ✅ Added
+import { signOut } from "firebase/auth";
 
 function PrivateRoute({ children }) {
   const [user, loading] = useAuthState(auth);
@@ -22,11 +22,24 @@ function App() {
   const isDark = localStorage.getItem("theme") === "dark";
 
   return (
-    <div className={isDark ? "dark" : ""}>
+    <div className={`${isDark ? "dark" : ""} h-screen w-screen overflow-hidden`}>
       <Router>
-        <div className="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
-          {/* Sidebar */}
-          <div className="w-48 bg-gray-900 text-white p-4 space-y-4">
+        <div className="flex flex-col md:flex-row h-full w-full">
+          {/* Mobile Top Bar */}
+          {user && (
+            <div className="md:hidden flex justify-between items-center bg-gray-900 text-white p-4">
+              <span className="font-bold">📚 StudyApp</span>
+              <button
+                onClick={() => signOut(auth)}
+                className="text-sm text-red-300"
+              >
+                🚪 Logout
+              </button>
+            </div>
+          )}
+
+          {/* Sidebar - Hidden on Mobile */}
+          <div className="w-full md:w-48 bg-gray-900 text-white p-4 space-y-4 overflow-y-auto hidden md:block">
             <h1 className="text-xl font-bold mb-6">📚 StudyApp</h1>
             <ThemeToggle />
             {user && (
@@ -53,7 +66,7 @@ function App() {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 p-6 overflow-y-auto bg-gray-100 dark:bg-gray-800">
+          <div className="flex-1 h-full overflow-auto p-4 sm:p-6 bg-gray-100 dark:bg-gray-800">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
