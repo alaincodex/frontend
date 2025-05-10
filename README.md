@@ -23,3 +23,4 @@ A smart, user-friendly flashcard and study assistant built with React. Study Too
 ```bash
 git clone https://github.com/alaincodex/study-tool.git
 cd study-tool
+https://frontend-eight-ochre-52.vercel.app/
